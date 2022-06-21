@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList1</title>
+</head>
+<body>
+    <script>
+
+        let lista = new Array
+        let name = new Array
+        let number = new Array
+        let confirmar = ''
+        
+        do{
+            let escolha = Number(prompt('1.....Gravar\n2.....Listar\n3.....Buscar\n4.....Excluir'))
+
+            switch(escolha){
+                case 1:
+                    name.push(prompt('Digite o nome a ser inserido:'))
+                    number.push(prompt('Digite o número a ser inserido'))
+                    
+                    let lastname = name[name.length - 1]
+                    let lastnumber = number[number.length - 1]
+                    lista.push([lastname, lastnumber])
+
+                    if(name!='' && number!=''){
+                    }
+                    else{
+                        alert('Preencha os campos!')
+                    }
+                    break;
+                case 2:
+                    if(lista.length!=0){
+                        let txt = ''
+                        for(pos in lista){
+                            txt+=`${lista[pos]}\n`
+                        }
+                        alert(txt)
+                    }else{
+                        alert('Não há nenhum item listado.')
+                    }
+                    break;
+                case 3:
+                        if(lista.length!=0){
+                            let index = prompt('Digite o nome da pessoa que quer buscar: ')
+                            indice = name.indexOf(index)
+                            if(indice!=-1){
+                                alert(lista[indice])
+                            }else{
+                                alert('Número não encontrado.')
+                            }
+                        }else{
+                            alert('Digite um item antes de buscar na lista')
+                        } 
+
+                    break;
+                case 4:
+                    let index = prompt('Digite o nome da pessoa que quer excluir: ')
+                    if(name.indexOf(index) != - 1){
+                        let excluir = name.indexOf(index)
+                        lista.splice(excluir, 1)
+                    }else{
+                        alert('[ERROR!] Nome não encontrado na lista.')
+                    }
+
+                    break;
+                default:
+                    alert('[ERROR!] Opção não existente.')
+                    break;
+            }
+            confirmar = confirm('Deseja continuar?')
+        }while(confirmar==true)
+    </script>
+</body>
+</html>
