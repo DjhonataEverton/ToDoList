@@ -9,10 +9,10 @@
 <body>
     <script>
 
-        let lista = new Array
         let name = new Array
         let number = new Array
         let confirmar = ''
+        let lista = new Array
         
         do{
             let escolha = Number(prompt('1.....Gravar\n2.....Listar\n3.....Buscar\n4.....Excluir'))
@@ -24,7 +24,7 @@
                     
                     let lastname = name[name.length - 1]
                     let lastnumber = number[number.length - 1]
-                    lista.push([lastname, lastnumber])
+                    lista.push(`${lastname} - ${lastnumber}`)
 
                     if(name!='' && number!=''){
                     }
