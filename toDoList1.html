@@ -22,11 +22,8 @@
                     name.push(prompt('Digite o nome a ser inserido:'))
                     number.push(prompt('Digite o número a ser inserido'))
                     
-                    let lastname = name[name.length - 1]
-                    let lastnumber = number[number.length - 1]
-                    lista.push(`${lastname} - ${lastnumber}`)
-
                     if(name!='' && number!=''){
+                        gravar(name, number)
                     }
                     else{
                         alert('Preencha os campos!')
@@ -34,24 +31,15 @@
                     break;
                 case 2:
                     if(lista.length!=0){
-                        let txt = ''
-                        for(pos in lista){
-                            txt+=`${lista[pos]}\n`
-                        }
-                        alert(txt)
+                        listar(lista)
                     }else{
                         alert('Não há nenhum item listado.')
                     }
                     break;
                 case 3:
-                        if(lista.length!=0){
+                       if(lista.length!=0){                          
                             let index = prompt('Digite o nome da pessoa que quer buscar: ')
-                            indice = name.indexOf(index)
-                            if(indice!=-1){
-                                alert(lista[indice])
-                            }else{
-                                alert('Número não encontrado.')
-                            }
+                            buscar(name, index, lista)
                         }else{
                             alert('Digite um item antes de buscar na lista')
                         } 
@@ -59,13 +47,7 @@
                     break;
                 case 4:
                     let index = prompt('Digite o nome da pessoa que quer excluir: ')
-                    if(name.indexOf(index) != - 1){
-                        let excluir = name.indexOf(index)
-                        lista.splice(excluir, 1)
-                    }else{
-                        alert('[ERROR!] Nome não encontrado na lista.')
-                    }
-
+                    excluir(name,index, lista)
                     break;
                 default:
                     alert('[ERROR!] Opção não existente.')
@@ -73,6 +55,34 @@
             }
             confirmar = confirm('Deseja continuar?')
         }while(confirmar==true)
+
+                                                    // FUNÇÕES
+
+        function gravar(name, number){
+            lista.push(`${name.slice(-1)} - ${number.slice(-1)}`)
+        }
+        function listar(lista){
+            let txt = ''
+            for(pos in lista){
+                txt+=`${lista[pos]}\n`
+            }
+            alert(txt)
+        }
+        function buscar(name, index, lista){
+            if(name.indexOf(index)!=-1){
+                alert(lista[name.indexOf(index)])
+            }else{
+                alert('Número não encontrado.')
+            }
+        } 
+        function excluir(name, index, lista){
+            if(name.indexOf(index) != - 1){
+                lista.splice(name.indexOf(index), 1)
+                alert('Número excluído')
+            }else{
+                alert('Número não encontrado.')
+            }
+        }
     </script>
 </body>
 </html>
