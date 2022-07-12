@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora.JS</title>
+    <style>
+        body{
+            text-align: center;
+            font: normal 14pt verdana;
+        }
+    </style>
+</head>
+<body>
+    Digite um número: <input type="number" name="" id="box1"> <br>
+    Digite outro número: <input type="number" name="" id="box2"><br>
+    <p>
+        <input type="button" value="+" onclick="somar()">
+        <input type="button" value="-" onclick="sub()">        
+        <input type="button" value="/" onclick="div()">        
+        <input type="button" value="*" onclick="mult()">            
+    </p>
+
+    <script>
+        function somar(){
+            let n1 = document.getElementById('box1').value
+            let n2 = document.getElementById('box2').value
+            if(n1 != '' && n2 != ''){
+                let res = Number(n1) + Number(n2)
+                alert(`O resultado foi de: ${res}`)
+            }
+        }
+
+        function sub(){
+            let n1 = document.getElementById('box1').value
+            let n2 = document.getElementById('box2').value
+            if(n1 != '' && n2 != ''){
+                let res = Number(n1) - Number(n2)
+                alert(`O resultado foi de: ${res}`)
+            }
+        }
+        
+        function div(){
+            let n1 = document.getElementById('box1').value
+            let n2 = document.getElementById('box2').value
+            if(n1 != '' && n2 != ''){
+                let res = Number(n1) / Number(n2)
+                alert(`O resultado foi de: ${res}`)
+            }
+        }
+
+        function mult(){
+            let n1 = document.getElementById('box1').value
+            let n2 = document.getElementById('box2').value
+            if(n1 != '' && n2 != ''){
+                let res = Number(n1) * Number(n2)
+                alert(`O resultado foi de: ${res}`)
+            }
+        }
+    </script>
+</body>
+</html>
